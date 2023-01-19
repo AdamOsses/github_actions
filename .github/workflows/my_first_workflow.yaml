@@ -1,4 +1,5 @@
 name: GitHub Actions Demo
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 on:
   push:
@@ -27,4 +28,5 @@ jobs:
           ls ${{ github.workspace }}
           echo "----------"
           echo "Pliki w obrazie."
-      - run: echo "Status joba jest ->${{ job.status }}<-."
+      - name: "Status joba."
+        run: echo "Status joba jest ->${{ job.status }}<-."
