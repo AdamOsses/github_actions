@@ -32,4 +32,4 @@ jobs:
         run: echo "Status joba jest ->${{ job.status }}<-."
 
       - name: Uruchom simple_file.py
-      - run: make run
+        run: make run
