@@ -1,2 +1,2 @@
-wypisz_tekst:
-	@echo "Hello, im text"
+run:
+	python3 simple_file.py

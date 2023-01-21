@@ -31,4 +31,5 @@ jobs:
       - name: "Status joba."
         run: echo "Status joba jest ->${{ job.status }}<-."
 
-      - run: make wypisz_tekst
+      - name: Uruchom simple_file.py
+      - run: make run
