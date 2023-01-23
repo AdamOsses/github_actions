@@ -1,10 +1,17 @@
 FROM ubuntu:20.04
 
-ADD simple_file.py /
-
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     python3.9 \
-    python3-pip
+    python3-pip \
 
-CMD ["python3", "./simple_file.py" ]
+ARG APP_DIR=/usr/src/my_app
+
+# WORKDIR /tmp
+ADD requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
+RUN mkdir -p $APP_DIR
+
+ADD simple_file.py $APP_DIR
+
+CMD ["python3", "/usr/src/my_app/simple_file.py", "/bin/bash" ]
