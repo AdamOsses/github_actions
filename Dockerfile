@@ -3,11 +3,12 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     python3.9 \
-    python3-pip \
+    python3-pip
 
 ARG APP_DIR=/usr/src/my_app
 
-# WORKDIR /tmp
+WORKDIR /tmp
+# dir where U start
 ADD requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 RUN mkdir -p $APP_DIR
