@@ -6,3 +6,4 @@ lint:
 
 run:
 	python3 simple_file.py
+	python3 tests/test_w3schools.py
