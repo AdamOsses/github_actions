@@ -1,5 +1,5 @@
 name: GitHub Actions Demo
-run-name: Deploy to ->${{ inputs.deploy_target }}<- by ->${{ github.actor }}<-
+run-name: Deploy by ->${{ github.actor }}<-
 
 on:
   push:
@@ -23,18 +23,17 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "Repozytorium ->${{ github.repository }}<- repo zostalo sklonowane przez runnera"
       - run: echo "Workflow gotowe. Czas zaczac faze testow"
-      - name: Wypisz liste plikow
+      - name: File list
         run: |
           ls ${{ github.workspace }}
           echo "----------"
-          echo "Pliki w obrazie."
-      - name: Status joba
-        run: echo "Status joba jest ->${{ job.status }}<-."
+      - name: Job status
+        run: echo "Job status ->${{ job.status }}<-."
 
-      - name: Zainstaluj niezbedne skladniki (mathplotlib+numpy)
+      - name: Install requirements - (mathplotlib+numpy) and selenium
         run: make deps
 
-      - name: Uruchom simple_file.py i testy
+      - name: Run - simple_file.py and tests
         run: make run
 
   send_to_docker:
@@ -62,4 +61,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: adamosses/simple_file:1.0
+          tags: adamosses/simple_file:1.1
