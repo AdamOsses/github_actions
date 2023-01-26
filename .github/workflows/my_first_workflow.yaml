@@ -34,7 +34,7 @@ jobs:
       - name: Zainstaluj niezbedne skladniki (mathplotlib+numpy)
         run: make deps
 
-      - name: Uruchom simple_file.py
+      - name: Uruchom simple_file.py i testy
         run: make run
 
   send_to_docker:
