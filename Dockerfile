@@ -3,9 +3,10 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     python3.9 \
-    python3-pip \
-    apt-get install -y wget \
-    wget -q -O - "https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz" | tar -xz -C /usr/local/bin/
+    python3-pip
+
+RUN apt-get install -y wget
+RUN wget -q -O - "https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz" | tar -xz -C /usr/local/bin/
 
 ARG APP_DIR=/home/my_app
 
