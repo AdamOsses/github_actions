@@ -7,7 +7,7 @@ class W3SchoolsTests(unittest.TestCase):
     def setUp(self):
         ff_options = FirefoxOptions()
         ff_options.add_argument('--headless')
-    # It shut off display: Docker containers have no display.
+        # Display mode off: Docker containers have no display.
         self.driver = webdriver.Firefox(options=ff_options)
         self.driver.get("https://www.w3schools.com/python/")
 
