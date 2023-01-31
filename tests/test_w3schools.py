@@ -1,11 +1,10 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver import FirefoxOptions
 
 
 class W3SchoolsTests(unittest.TestCase):
     def setUp(self):
-        ff_options = FirefoxOptions()
+        ff_options = webdriver.FirefoxOptions()
         ff_options.add_argument('--headless')
         # Display mode off: Docker containers have no display.
         self.driver = webdriver.Firefox(options=ff_options)
